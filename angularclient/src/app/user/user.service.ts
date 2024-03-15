@@ -2,18 +2,17 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from "rxjs";
 import {User} from "./user";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class UserService {
 
-  private usersUrl: string;
+  private usersUrl = environment.domain + 'users';
 
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:8080/users';
   }
 
   public findAll(): Observable<User[]> {
-    console.log(this.http.get<User[]>(this.usersUrl));
     return this.http.get<User[]>(this.usersUrl);
   }
 

@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 @SpringBootApplication
 public class MynriApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(MynriApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(MynriApplication.class, args);
+	}
 }

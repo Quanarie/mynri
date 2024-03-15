@@ -19,10 +19,11 @@
                name="email"
                placeholder="Enter your email address"
                required #email="ngModel">
-        <div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div>
       </div>
+      <div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div>
       <button type="submit" [disabled]="!userForm.form.valid"
-              class="btn btn-info">Submit</button>
+              class="btn btn-info">Submit
+      </button>
     </form>
   </div>
 </div>
