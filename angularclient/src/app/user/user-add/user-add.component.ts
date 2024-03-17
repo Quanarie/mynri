@@ -5,9 +5,9 @@ import {UserService} from "../user.service";
 
 @Component({
   selector: 'app-user-form',
-  templateUrl: './user-form.component.html'
+  templateUrl: './user-add.component.html'
 })
-export class UserFormComponent {
+export class UserAddComponent {
 
   user: User;
 

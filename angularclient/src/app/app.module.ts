@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserListComponent } from './user/user-list/user-list.component';
-import { UserFormComponent } from './user/user-form/user-form.component';
+import { UserAddComponent } from './user/user-add/user-add.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {UserService} from "./user/user.service";
@@ -13,7 +13,7 @@ import {UserService} from "./user/user.service";
   declarations: [
     AppComponent,
     UserListComponent,
-    UserFormComponent
+    UserAddComponent
   ],
   imports: [
     BrowserModule,

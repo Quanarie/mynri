@@ -1,7 +1,5 @@
-package com.mynri.mynri.controllers;
+package com.mynri.mynri.user;
 
-import com.mynri.mynri.entities.User;
-import com.mynri.mynri.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
