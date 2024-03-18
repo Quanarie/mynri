@@ -33,7 +33,6 @@ public class Post {
     private final Payment payment;
 
     private final int paymentValue;
-
     private final String title;
     private final String content;
     private final int bookedPlayers;

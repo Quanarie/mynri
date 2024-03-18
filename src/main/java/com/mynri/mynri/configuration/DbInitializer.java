@@ -14,6 +14,7 @@ import com.mynri.mynri.user.role.Role;
 import com.mynri.mynri.user.role.RoleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -41,7 +42,7 @@ public class DbInitializer implements CommandLineRunner {
         Set<User> users = Set.of(
                 new User(
                         "qustaine",
-                        "$2a$12$Oa/r6G1ALZ4.WOz0mhCjnOsqsfqlk2WI9yUKlsRpxLO3.K9Wujhkm",
+                        new BCryptPasswordEncoder().encode("changeit"),
                         "qustaine@gmail.com",
                         roles
                 )

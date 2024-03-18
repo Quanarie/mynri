@@ -2,9 +2,6 @@
   <div>
     <label for="username">Username</label>
     <input type="text" id="username" formControlName="username">
-    <div *ngIf="loginForm.get('username')?.errors?.['usernameDoesNotExist']">
-      Username does not exists.
-    </div>
   </div>
 
   <div>

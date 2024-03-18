@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from "rxjs";
 import {User} from "./user";
 import {environment} from "../../environments/environment";
@@ -10,6 +10,7 @@ import {environment} from "../../environments/environment";
 export class UserService {
 
   private registerUrl = environment.domain + 'register';
+  private loginUrl = environment.domain + 'login';
   private currentUserUrl = environment.domain + 'currentUser';
 
   constructor(private http: HttpClient) {
@@ -21,5 +22,15 @@ export class UserService {
 
   public register(user: User) {
     return this.http.post<User>(this.registerUrl, user);
+  }
+
+  public login(user: User) {
+    const headers = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
+
+    let body = new URLSearchParams();
+    body.set('username', user.username);
+    body.set('password', user.password);
+
+    return this.http.post(this.loginUrl, body.toString(), {headers, withCredentials: true});
   }
 }
