@@ -3,22 +3,22 @@ import {PostService} from "../post.service";
 import {Post} from "../post";
 
 @Component({
-    selector: 'app-post-list',
-    templateUrl: './post-list.component.html'
+  selector: 'app-post-list',
+  templateUrl: './post-list.component.html'
 })
 export class PostListComponent implements OnInit {
-    posts: Post[] = [];
+  posts: Post[] = [];
 
-    constructor(private postService: PostService) {
-    }
+  constructor(private postService: PostService) {
+  }
 
-    ngOnInit(): void {
-        this.loadPosts();
-    }
+  ngOnInit(): void {
+    this.loadPosts();
+  }
 
-    loadPosts(): void {
-        this.postService.findAll().subscribe(posts => {
-            this.posts = posts;
-        });
-    }
+  loadPosts(): void {
+    this.postService.findAll().subscribe(posts => {
+      this.posts = posts;
+    });
+  }
 }

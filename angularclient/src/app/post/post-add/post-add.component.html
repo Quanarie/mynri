@@ -1,0 +1,74 @@
+<form [formGroup]="postForm" (ngSubmit)="onSubmit()" novalidate>
+  <div>
+    <label for="title">Title:</label>
+    <input id="title" formControlName="title" placeholder="Title" type="text">
+  </div>
+
+  <div>
+    <label for="content">Content:</label>
+    <textarea id="content" formControlName="content" placeholder="Content"></textarea>
+  </div>
+
+  <div>
+    <label for="gameSystem">Game System:</label>
+    <select id="gameSystem" formControlName="gameSystem">
+      <option *ngFor="let system of gameSystems" [ngValue]="system">{{ system.name }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="gameType">Game Type:</label>
+    <select id="gameType" formControlName="gameType">
+      <option *ngFor="let type of gameTypes" [ngValue]="type">{{ type.name }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="payment">Payment Method:</label>
+    <select id="payment" formControlName="payment">
+      <option *ngFor="let payment of payments" [ngValue]="payment">{{ payment.name }}</option>
+    </select>
+  </div>
+
+  <div *ngIf="postForm.get('paymentId')?.value > 0">
+    <label for="paymentValue">Payment Value:</label>
+    <input id="paymentValue" formControlName="paymentValue" placeholder="Payment Value" type="number">
+  </div>
+
+  <div>
+    <label for="place">Place:</label>
+    <input id="place" formControlName="place" placeholder="Place" type="text">
+  </div>
+
+  <div>
+    <label for="duration">Duration (Hours):</label>
+    <input id="duration" formControlName="duration" placeholder="Duration" type="number">
+  </div>
+
+  <div>
+    <label for="isOnline">Is Online:</label>
+    <input id="isOnline" formControlName="isOnline" type="checkbox">
+  </div>
+
+  <div>
+    <label for="isApproved">Is Approved:</label>
+    <input id="isApproved" formControlName="isApproved" type="checkbox">
+  </div>
+
+  <div>
+    <label for="bookedPlayers">Booked Players:</label>
+    <input id="bookedPlayers" formControlName="bookedPlayers" placeholder="Booked Players" type="number">
+  </div>
+
+  <div>
+    <label for="maxPlayers">Max Players:</label>
+    <input id="maxPlayers" formControlName="maxPlayers" placeholder="Max Players" type="number">
+  </div>
+
+  <div>
+    <label for="gameDate">Game Date:</label>
+    <input id="gameDate" formControlName="gameDate" type="date">
+  </div>
+
+  <button type="submit" [disabled]="!postForm.valid">Submit</button>
+</form>

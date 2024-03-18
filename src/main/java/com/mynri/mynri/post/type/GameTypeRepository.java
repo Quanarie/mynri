@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface TypeRepository extends CrudRepository<GameType, Long> {
+public interface GameTypeRepository extends CrudRepository<GameType, Long> {
     Optional<GameType> findByName(String name);
 }

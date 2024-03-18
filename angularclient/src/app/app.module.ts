@@ -1,27 +1,31 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { UserListComponent } from './user/user-list/user-list.component';
-import { UserAddComponent } from './user/user-add/user-add.component';
-import {FormsModule} from "@angular/forms";
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {UserService} from "./user/user.service";
+import {PostComponent} from './post/post.component';
+import {PostListComponent} from './post/post-list/post-list.component';
+import {PostAddComponent} from './post/post-add/post-add.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserListComponent,
-    UserAddComponent
+    PostComponent,
+    PostListComponent,
+    PostAddComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [UserService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

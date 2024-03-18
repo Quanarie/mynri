@@ -2,19 +2,19 @@ import {Injectable} from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {GameSystem} from "./game-system";
+import {GameType} from "./game-type";
 
 @Injectable({
   providedIn: 'root'
 })
-export class GameSystemService {
+export class GameTypeService {
 
-  private gameSystemsUrl = environment.domain + 'gameSystems';
+  private gameTypeUrl = environment.domain + 'gameTypes';
 
   constructor(private http: HttpClient) {
   }
 
-  public findAll(): Observable<GameSystem[]> {
-    return this.http.get<GameSystem[]>(this.gameSystemsUrl);
+  public findAll(): Observable<GameType[]> {
+    return this.http.get<GameType[]>(this.gameTypeUrl);
   }
 }

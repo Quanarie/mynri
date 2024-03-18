@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {routes} from "./app-routing.module";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'angularclient';
+  title = 'NRI';
+  navRoutes = routes.filter(route => route.data?.['showInNav']);
 }

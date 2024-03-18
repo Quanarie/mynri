@@ -1,20 +1,27 @@
-package com.mynri.mynri.post.payment;
+package com.mynri.mynri.post;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class PaymentController {
+public class PostController {
 
-    private final PaymentRepository paymentRepository;
+    private final PostRepository postRepository;
 
-    @GetMapping("/payments")
-    public List<Payment> getPayments() {
-        return (List<Payment>) paymentRepository.findAll();
+    @GetMapping("/posts")
+    public List<Post> getPosts() {
+        return (List<Post>) postRepository.findAll();
+    }
+
+    @PostMapping("/posts")
+    void addPost(@RequestBody Post post) {
+        postRepository.save(post);
     }
 
 }

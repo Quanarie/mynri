@@ -1,4 +1,4 @@
-package com.mynri.mynri.user.role;
+package com.mynri.mynri.post.payment;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface RoleRepository extends CrudRepository<Role, Long> {
-    Optional<Role> findByName(String name);
+public interface PaymentRepository extends CrudRepository<Payment, Long> {
+    Optional<Payment> findByName(String name);
 }

@@ -1,0 +1,24 @@
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="username">Username</label>
+    <input type="text" id="username" formControlName="username">
+    <div *ngIf="registrationForm.get('username')?.errors?.['usernameExists']">
+      Username already exists.
+    </div>
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+    <input type="email" id="email" formControlName="email">
+    <div *ngIf="registrationForm.get('email')?.errors?.['emailExists']">
+      Email already exists.
+    </div>
+  </div>
+
+  <div>
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password">
+  </div>
+
+  <button type="submit" [disabled]="!registrationForm.valid">Register</button>
+</form>

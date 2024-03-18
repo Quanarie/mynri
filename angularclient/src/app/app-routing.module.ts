@@ -1,11 +1,13 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {UserListComponent} from "./user/user-list/user-list.component";
-import {UserAddComponent} from "./user/user-add/user-add.component";
+import {PostListComponent} from "./post/post-list/post-list.component";
+import {PostAddComponent} from "./post/post-add/post-add.component";
+import {RegistrationComponent} from "./registration/registration.component";
 
-const routes: Routes = [
-  {path: 'users', component: UserListComponent},
-  {path: 'adduser', component: UserAddComponent}
+export const routes: Routes = [
+  { path: 'posts', component: PostListComponent, data: { title: 'Пости', showInNav: true } },
+  { path: 'post-add', component: PostAddComponent, data: { title: 'Додати пост', showInNav: true } },
+  { path: 'registration', component: RegistrationComponent, data: { title: 'Реєстрація', showInNav: true } },
 ];
 
 @NgModule({

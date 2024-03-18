@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @NoArgsConstructor(force = true)
 @RequiredArgsConstructor
-public class Type {
+public class GameType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

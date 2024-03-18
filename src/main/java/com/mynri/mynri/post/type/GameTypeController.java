@@ -1,4 +1,4 @@
-package com.mynri.mynri.post.system;
+package com.mynri.mynri.post.type;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,13 +8,14 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class GameSystemController {
+public class GameTypeController {
 
-    private final GameSystemRepository gameSystemRepository;
+    private final GameTypeRepository gameTypeRepository;
 
-    @GetMapping("/gameSystems")
-    public List<GameSystem> getPayments() {
-        return (List<GameSystem>) gameSystemRepository.findAll();
+    @GetMapping("/gameTypes")
+    public List<GameType> getGameTypes() {
+        return (List<GameType>) gameTypeRepository.findAll();
     }
+
 }
 

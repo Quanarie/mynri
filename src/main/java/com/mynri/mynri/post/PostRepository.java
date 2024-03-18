@@ -1,2 +1,8 @@
-package com.mynri.mynri.post;public class PostRepository {
+package com.mynri.mynri.post;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface PostRepository extends CrudRepository<Post, Long> {
 }

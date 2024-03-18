@@ -1,4 +1,4 @@
-package com.mynri.mynri.user.role;
+package com.mynri.mynri.post.payment;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @NoArgsConstructor(force = true)
 @RequiredArgsConstructor
-public class Role {
+public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
