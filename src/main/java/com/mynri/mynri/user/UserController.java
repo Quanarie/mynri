@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @RestController
 @RequiredArgsConstructor
@@ -11,13 +13,14 @@ public class UserController {
 
     private final UserRepository userRepository;
 
-    @GetMapping("/users")
-    public List<User> getUsers() {
-        return (List<User>) userRepository.findAll();
+    // TODO: change with spring security
+    @GetMapping("/currentUser")
+    public User getCurrentUser() {
+        return userRepository.findAll().iterator().next();
     }
 
-    @PostMapping("/users")
-    void addUser(@RequestBody User user) {
+    @PostMapping("/register")
+    void registerUser(@RequestBody User user) {
         userRepository.save(user);
     }
 }

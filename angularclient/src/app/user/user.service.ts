@@ -9,16 +9,17 @@ import {environment} from "../../environments/environment";
 })
 export class UserService {
 
-  private usersUrl = environment.domain + 'users';
+  private registerUrl = environment.domain + 'register';
+  private currentUserUrl = environment.domain + 'currentUser';
 
   constructor(private http: HttpClient) {
   }
 
-  public findAll(): Observable<User[]> {
-    return this.http.get<User[]>(this.usersUrl);
+  public getCurrent(): Observable<User> {
+    return this.http.get<User>(this.currentUserUrl);
   }
 
-  public save(user: User) {
-    return this.http.post<User>(this.usersUrl, user);
+  public register(user: User) {
+    return this.http.post<User>(this.registerUrl, user);
   }
 }
