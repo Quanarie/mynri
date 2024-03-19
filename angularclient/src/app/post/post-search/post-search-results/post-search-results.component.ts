@@ -4,9 +4,9 @@ import {Post} from "../post";
 
 @Component({
   selector: 'app-post-list',
-  templateUrl: './post-list.component.html'
+  templateUrl: './post-search-results.component.html'
 })
-export class PostListComponent implements OnInit {
+export class PostSearchResultsComponent implements OnInit {
   posts: Post[] = [];
 
   constructor(private postService: PostService) {
