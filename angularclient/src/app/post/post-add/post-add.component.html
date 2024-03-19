@@ -37,21 +37,20 @@
 
   <div>
     <label for="tags">Tags:</label>
-    <select id="tags" formControlName="tags" multiple>
-      <option *ngFor="let tag of tags" [ngValue]="tag">{{ tag.name }}</option>
-    </select>
+    <ng-select id="tags" formControlName="tags"
+               [items]="tags"
+               bindLabel="name"
+               [multiple]=true>
+    </ng-select>
   </div>
 
   <div>
     <label for="warnings">Warnings:</label>
-    <select id="warnings" formControlName="warnings" multiple>
-      <option *ngFor="let warning of warnings" [ngValue]="warning">{{ warning.name }}</option>
-    </select>
-  </div>
-
-  <div>
-    <label for="place">Place:</label>
-    <input id="place" formControlName="place" placeholder="Place" type="text">
+    <ng-select id="warnings" formControlName="warnings"
+               [items]="warnings"
+               bindLabel="name"
+               [multiple]=true>
+    </ng-select>
   </div>
 
   <div>

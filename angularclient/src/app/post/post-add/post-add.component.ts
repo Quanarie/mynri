@@ -34,22 +34,22 @@ export class PostAddComponent implements OnInit {
               private warningService: WarningService,
               private postService: PostService) {
     this.postForm = new FormGroup({
-      title: new FormControl('', Validators.required),
-      content: new FormControl('', Validators.required),
+      title: new FormControl(''),
+      content: new FormControl(''),
       gameSystem: new FormControl(null, Validators.required),
       gameType: new FormControl(null, Validators.required),
       payment: new FormControl(null, Validators.required),
       paymentValue: new FormControl(0),
       tags: new FormControl([]),
       warnings: new FormControl([]),
-      place: new FormControl('', Validators.required),
-      duration: new FormControl(0, Validators.required),
+      place: new FormControl(''),
+      duration: new FormControl(0),
       isOnline: new FormControl(false),
       isApproved: new FormControl(false),
       bookedPlayers: new FormControl(0),
-      maxPlayers: new FormControl(0, Validators.required),
+      maxPlayers: new FormControl(0),
       creationDate: new FormControl(new Date()),
-      gameDate: new FormControl(new Date(), Validators.required)
+      gameDate: new FormControl(null, Validators.required)
     });
   }
 
@@ -63,7 +63,6 @@ export class PostAddComponent implements OnInit {
 
   onSubmit(): void {
     if (this.postForm.valid) {
-      console.log("chuj");
       const post: Post = this.postForm.value;
       this.postService.save(post).subscribe();
     }

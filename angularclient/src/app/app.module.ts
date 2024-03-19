@@ -8,9 +8,10 @@ import {HttpClientModule} from "@angular/common/http";
 import {PostComponent} from './post/post.component';
 import {PostListComponent} from './post/post-list/post-list.component';
 import {PostAddComponent} from './post/post-add/post-add.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { ProfileComponent } from './profile/profile.component';
-import { LoginComponent } from './login/login.component';
+import {RegistrationComponent} from './registration/registration.component';
+import {ProfileComponent} from './profile/profile.component';
+import {LoginComponent} from './login/login.component';
+import {NgSelectModule} from "@ng-select/ng-select";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgSelectModule
   ],
   bootstrap: [AppComponent]
 })
