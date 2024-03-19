@@ -6,6 +6,14 @@
   <p>Game Type: {{ post.gameType.name }}</p>
   <p>Payment Method: {{ post.payment.name }}</p>
   <p>Payment Value: {{ post.paymentValue }}</p>
+  <p>Tags:</p>
+  <ul>
+    <li *ngFor="let tag of post.tags">{{ tag.name }}</li>
+  </ul>
+  <p>Warnings:</p>
+  <ul>
+    <li *ngFor="let warning of post.warnings">{{ warning.name }}</li>
+  </ul>
   <p>Booked Players: {{ post.bookedPlayers }} / {{ post.maxPlayers }}</p>
   <p>Creation Date: {{ post.creationDate | date:'medium' }}</p>
   <p>Game Date: {{ post.gameDate | date:'medium' }}</p>

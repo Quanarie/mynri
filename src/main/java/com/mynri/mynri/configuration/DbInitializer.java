@@ -6,8 +6,12 @@ import com.mynri.mynri.post.payment.Payment;
 import com.mynri.mynri.post.payment.PaymentRepository;
 import com.mynri.mynri.post.system.GameSystem;
 import com.mynri.mynri.post.system.GameSystemRepository;
+import com.mynri.mynri.post.tag.Tag;
+import com.mynri.mynri.post.tag.TagRepository;
 import com.mynri.mynri.post.type.GameType;
 import com.mynri.mynri.post.type.GameTypeRepository;
+import com.mynri.mynri.post.warning.Warning;
+import com.mynri.mynri.post.warning.WarningRepository;
 import com.mynri.mynri.user.User;
 import com.mynri.mynri.user.UserRepository;
 import com.mynri.mynri.user.role.Role;
@@ -30,6 +34,8 @@ public class DbInitializer implements CommandLineRunner {
     private final GameSystemRepository gameSystemRepository;
     private final GameTypeRepository gameTypeRepository;
     private final PostRepository postRepository;
+    private final TagRepository tagRepository;
+    private final WarningRepository warningRepository;
 
     @Override
     public void run(String... args) {
@@ -70,9 +76,24 @@ public class DbInitializer implements CommandLineRunner {
         );
         gameTypeRepository.saveAll(gameTypes);
 
+        Set<Tag> tags = Set.of(
+                new Tag("Плейтест"),
+                new Tag("Англійська"),
+                new Tag("Свої персонажі"),
+                new Tag("Новачками сюди")
+        );
+        tagRepository.saveAll(tags);
+
+        Set<Warning> warnings = Set.of(
+                new Warning("Кров"),
+                new Warning("Нецензурна лексика"),
+                new Warning("Смерть")
+        );
+        warningRepository.saveAll(warnings);
+
         Set<Post> posts = Set.of(
                 new Post(users.iterator().next(), gameSystems.iterator().next(), gameTypes.iterator().next(),
-                        payments.iterator().next(), 0, "Назва", "Опис", 1, 4,
+                        payments.iterator().next(), tags, warnings, 0, "Назва", "Опис", 1, 4,
                         new Date(), new Date(), "Київ", 1.5f, false, true)
         );
         postRepository.saveAll(posts);

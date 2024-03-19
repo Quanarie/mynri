@@ -8,6 +8,10 @@ import {Post} from "../post";
 import {PostService} from "../post.service";
 import {GameType} from "../game-type/game-type";
 import {Payment} from "../payment/payment";
+import {Tag} from "../tag/tag";
+import {Warning} from "../warning/warning";
+import {TagService} from "../tag/tag.service";
+import {WarningService} from "../warning/warning.service";
 
 @Component({
   selector: 'app-post-add',
@@ -20,10 +24,14 @@ export class PostAddComponent implements OnInit {
   gameSystems: GameSystem[] = [];
   gameTypes: GameType[] = [];
   payments: Payment[] = [];
+  tags: Tag[] = [];
+  warnings: Warning[] = [];
 
   constructor(private gameSystemService: GameSystemService,
               private gameTypeService: GameTypeService,
               private paymentService: PaymentService,
+              private tagService: TagService,
+              private warningService: WarningService,
               private postService: PostService) {
     this.postForm = new FormGroup({
       title: new FormControl('', Validators.required),
@@ -32,6 +40,8 @@ export class PostAddComponent implements OnInit {
       gameType: new FormControl(null, Validators.required),
       payment: new FormControl(null, Validators.required),
       paymentValue: new FormControl(0),
+      tags: new FormControl([]),
+      warnings: new FormControl([]),
       place: new FormControl('', Validators.required),
       duration: new FormControl(0, Validators.required),
       isOnline: new FormControl(false),
@@ -47,10 +57,13 @@ export class PostAddComponent implements OnInit {
     this.loadGameSystems();
     this.loadGameTypes();
     this.loadPayments();
+    this.loadTags();
+    this.loadWarnings();
   }
 
   onSubmit(): void {
     if (this.postForm.valid) {
+      console.log("chuj");
       const post: Post = this.postForm.value;
       this.postService.save(post).subscribe();
     }
@@ -71,6 +84,18 @@ export class PostAddComponent implements OnInit {
   loadPayments(): void {
     this.paymentService.findAll().subscribe(payments => {
       this.payments = payments;
+    });
+  }
+
+  loadTags(): void {
+    this.tagService.findAll().subscribe(tags => {
+      this.tags = tags;
+    });
+  }
+
+  loadWarnings(): void {
+    this.warningService.findAll().subscribe(warnings => {
+      this.warnings = warnings;
     });
   }
 

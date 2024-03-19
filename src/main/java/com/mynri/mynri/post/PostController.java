@@ -1,5 +1,6 @@
 package com.mynri.mynri.post;
 
+import com.mynri.mynri.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ import java.util.List;
 public class PostController {
 
     private final PostRepository postRepository;
+    private final UserService userService;
 
     @GetMapping("/posts")
     public List<Post> getPosts() {
@@ -21,7 +23,7 @@ public class PostController {
 
     @PostMapping("/posts")
     void addPost(@RequestBody Post post) {
-        postRepository.save(post);
+        postRepository.save(new Post(post, userService.GetCurrent()));
     }
 
 }
