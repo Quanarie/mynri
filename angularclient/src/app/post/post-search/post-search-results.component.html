@@ -1,0 +1,9 @@
+<div *ngIf="filteredPosts.length > 0; else noResults">
+  <div *ngFor="let post of filteredPosts">
+    <app-post [post]="post"></app-post>
+  </div>
+</div>
+<ng-template #noResults>
+  <p>No results found.</p>
+</ng-template>
+

@@ -1,0 +1,8 @@
+<div>
+  <app-post-search-params
+    (filtersChanged)="onFiltersChanged($event)"></app-post-search-params>
+
+  <app-post-search-results
+    [filteredPosts]="filteredPosts"></app-post-search-results>
+</div>
+

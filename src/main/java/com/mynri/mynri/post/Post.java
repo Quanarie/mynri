@@ -10,6 +10,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.lang.NonNull;
 
 import java.util.Date;
 import java.util.Set;
@@ -23,15 +24,19 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @NonNull
     @ManyToOne
     private final User creator;
 
+    @NonNull
     @ManyToOne
     private final GameSystem gameSystem;
 
+    @NonNull
     @ManyToOne
     private final GameType gameType;
 
+    @NonNull
     @ManyToOne
     private final Payment payment;
 
@@ -46,8 +51,13 @@ public class Post {
     private final String content;
     private final int bookedPlayers;
     private final int maxPlayers;
+
+    @NonNull
     private final Date creationDate;
+
+    @NonNull
     private final Date gameDate;
+
     private final String place;
     private final float duration;
     private final boolean isOnline;

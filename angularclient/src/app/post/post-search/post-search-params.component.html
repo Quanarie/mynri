@@ -1,0 +1,134 @@
+<form (ngSubmit)="onSubmit()" novalidate>
+  <div>
+    <label for="creator">Creator:</label>
+    <input id="creator" type="text" [(ngModel)]="filters.creator" name="creator" placeholder="Enter creator">
+  </div>
+
+  <div>
+    <label for="gameSystem">Game System:</label>
+    <ng-select id="gameSystem"
+               bindLabel="name"
+               bindValue="name"
+               [(ngModel)]="filters.gameSystems"
+               [items]="postInfo.gameSystems"
+               [multiple]="true"
+               name="gameSystem"
+               placeholder="Select game systems">
+    </ng-select>
+  </div>
+
+  <div>
+    <label for="gameType">Game Type:</label>
+    <ng-select id="gameType"
+               bindLabel="name"
+               bindValue="name"
+               [(ngModel)]="filters.gameTypes"
+               [items]="postInfo.gameTypes"
+               [multiple]="true"
+               name="gameType"
+               placeholder="Select game types">
+    </ng-select>
+  </div>
+
+  <div>
+    <label for="tags">Tags:</label>
+    <ng-select id="tags"
+               bindLabel="name"
+               bindValue="name"
+               [(ngModel)]="filters.tags"
+               [items]="postInfo.tags"
+               [multiple]="true"
+               name="tags"
+               placeholder="Select tags">
+    </ng-select>
+  </div>
+
+  <div>
+    <label for="warnings">Warnings:</label>
+    <ng-select id="warnings"
+               bindLabel="name"
+               bindValue="name"
+               [(ngModel)]="filters.warnings"
+               [items]="postInfo.warnings"
+               [multiple]="true"
+               name="warnings"
+               placeholder="Select warnings">
+    </ng-select>
+  </div>
+
+  <div>
+    <label for="payment">Payment Method:</label>
+    <input id="payment" type="text" [(ngModel)]="filters.payment" name="payment" placeholder="Enter payment method">
+  </div>
+
+  <div>
+    <label for="paymentMinValue">Minimum Payment Value:</label>
+    <input id="paymentMinValue" type="number" [(ngModel)]="filters.paymentMinValue" name="paymentMinValue"
+           placeholder="Enter minimum payment value">
+  </div>
+
+  <div>
+    <label for="paymentMaxValue">Maximum Payment Value:</label>
+    <input id="paymentMaxValue" type="number" [(ngModel)]="filters.paymentMaxValue" name="paymentMaxValue"
+           placeholder="Enter maximum payment value">
+  </div>
+
+  <div>
+    <label for="title">Title:</label>
+    <input id="title" type="text" [(ngModel)]="filters.title" name="title" placeholder="Enter title">
+  </div>
+
+  <div>
+    <label for="content">Content:</label>
+    <textarea id="content" [(ngModel)]="filters.content" name="content" placeholder="Enter content"></textarea>
+  </div>
+
+  <div>
+    <label for="isFullyBooked">Fully Booked:</label>
+    <input id="isFullyBooked" type="checkbox" [(ngModel)]="filters.isFullyBooked" name="isFullyBooked">
+  </div>
+
+  <div>
+    <label for="creationMinDate">Creation Date (Min):</label>
+    <input id="creationMinDate" type="date" [(ngModel)]="filters.creationMinDate" name="creationMinDate">
+  </div>
+
+  <div>
+    <label for="creationMaxDate">Creation Date (Max):</label>
+    <input id="creationMaxDate" type="date" [(ngModel)]="filters.creationMaxDate" name="creationMaxDate">
+  </div>
+
+  <div>
+    <label for="gameMinDate">Game Date (Min):</label>
+    <input id="gameMinDate" type="date" [(ngModel)]="filters.gameMinDate" name="gameMinDate">
+  </div>
+
+  <div>
+    <label for="gameMaxDate">Game Date (Max):</label>
+    <input id="gameMaxDate" type="date" [(ngModel)]="filters.gameMaxDate" name="gameMaxDate">
+  </div>
+
+  <div>
+    <label for="place">Place:</label>
+    <input id="place" type="text" [(ngModel)]="filters.place" name="place" placeholder="Enter place">
+  </div>
+
+  <div>
+    <label for="minDuration">Minimum Duration (Hours):</label>
+    <input id="minDuration" type="number" [(ngModel)]="filters.minDuration" name="minDuration"
+           placeholder="Enter minimum duration">
+  </div>
+
+  <div>
+    <label for="maxDuration">Maximum Duration (Hours):</label>
+    <input id="maxDuration" type="number" [(ngModel)]="filters.maxDuration" name="maxDuration"
+           placeholder="Enter maximum duration">
+  </div>
+
+  <div>
+    <label for="isOnline">Is Online:</label>
+    <input id="isOnline" type="checkbox" [(ngModel)]="filters.isOnline" name="isOnline">
+  </div>
+
+  <button type="submit">Apply Filters</button>
+</form>

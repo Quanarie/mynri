@@ -1,86 +1,101 @@
-<form [formGroup]="postForm" (ngSubmit)="onSubmit()" novalidate>
+<form (ngSubmit)="onSubmit()" novalidate #postForm="ngForm">
   <div>
-    <label for="title">Title:</label>
-    <input id="title" formControlName="title" placeholder="Title" type="text">
+    <label for="title">Назва:</label>
+    <input id="title" type="text" [(ngModel)]="post.title" name="title" required>
+    <app-post-validate-field
+      [controlField]="postForm.controls['title']"
+      [validateMessage]="'Назва не може бути пустою.'"></app-post-validate-field>
+    <!--TODO: add validation for other fields-->
   </div>
 
   <div>
-    <label for="content">Content:</label>
-    <textarea id="content" formControlName="content" placeholder="Content"></textarea>
+    <label for="content">Опис:</label>
+    <textarea id="content" [(ngModel)]="post.content" name="content"></textarea>
   </div>
 
   <div>
-    <label for="gameSystem">Game System:</label>
-    <select id="gameSystem" formControlName="gameSystem">
-      <option *ngFor="let system of gameSystems" [ngValue]="system">{{ system.name }}</option>
+    <label for="gameSystem">Система:</label>
+    <select id="gameSystem" [(ngModel)]="post.gameSystem" name="gameSystem">
+      <option *ngFor="let system of postInfo.gameSystems" [ngValue]="system">{{ system.name }}</option>
     </select>
   </div>
 
   <div>
     <label for="gameType">Game Type:</label>
-    <select id="gameType" formControlName="gameType">
-      <option *ngFor="let type of gameTypes" [ngValue]="type">{{ type.name }}</option>
+    <select id="gameType" [(ngModel)]="post.gameType" name="gameType">
+      <option *ngFor="let type of postInfo.gameTypes" [ngValue]="type">{{ type.name }}</option>
     </select>
   </div>
 
   <div>
     <label for="payment">Payment Method:</label>
-    <select id="payment" formControlName="payment">
-      <option *ngFor="let payment of payments" [ngValue]="payment">{{ payment.name }}</option>
+    <select id="payment" [(ngModel)]="post.payment" name="payment">
+      <option *ngFor="let payment of postInfo.payments" [ngValue]="payment">{{ payment.name }}</option>
     </select>
   </div>
 
-  <div *ngIf="postForm.get('paymentId')?.value > 0">
+  <div *ngIf="post.payment && post.payment.name !== 'Free'">
     <label for="paymentValue">Payment Value:</label>
-    <input id="paymentValue" formControlName="paymentValue" placeholder="Payment Value" type="number">
+    <input id="paymentValue" [(ngModel)]="post.paymentValue" placeholder="Payment Value" type="number"
+           name="paymentValue">
   </div>
 
   <div>
     <label for="tags">Tags:</label>
-    <ng-select id="tags" formControlName="tags"
-               [items]="tags"
+    <ng-select id="tags"
                bindLabel="name"
-               [multiple]=true>
+               [(ngModel)]="post.tags"
+               [items]="postInfo.tags"
+               [multiple]=true
+               name="tags">
     </ng-select>
   </div>
 
   <div>
     <label for="warnings">Warnings:</label>
-    <ng-select id="warnings" formControlName="warnings"
-               [items]="warnings"
+    <ng-select id="warnings"
                bindLabel="name"
-               [multiple]=true>
+               [(ngModel)]="post.warnings"
+               [items]="postInfo.warnings"
+               [multiple]=true
+               name="warnings">
     </ng-select>
   </div>
 
   <div>
+    <label for="place">Place:</label>
+    <input id="place" placeholder="Place" type="text" [(ngModel)]="post.place" name="place">
+  </div>
+
+  <div>
     <label for="duration">Duration (Hours):</label>
-    <input id="duration" formControlName="duration" placeholder="Duration" type="number">
+    <input id="duration" [(ngModel)]="post.duration" placeholder="Duration" type="number" name="duration">
   </div>
 
   <div>
     <label for="isOnline">Is Online:</label>
-    <input id="isOnline" formControlName="isOnline" type="checkbox">
+    <input id="isOnline" [(ngModel)]="post.isOnline" type="checkbox" name="isOnline">
   </div>
 
   <div>
     <label for="isApproved">Is Approved:</label>
-    <input id="isApproved" formControlName="isApproved" type="checkbox">
+    <input id="isApproved" [(ngModel)]="post.isApproved" type="checkbox" name="isApproved">
   </div>
 
   <div>
     <label for="bookedPlayers">Booked Players:</label>
-    <input id="bookedPlayers" formControlName="bookedPlayers" placeholder="Booked Players" type="number">
+    <input id="bookedPlayers" [(ngModel)]="post.bookedPlayers" placeholder="Booked Players" type="number"
+           name="bookedPlayers">
   </div>
 
   <div>
     <label for="maxPlayers">Max Players:</label>
-    <input id="maxPlayers" formControlName="maxPlayers" placeholder="Max Players" type="number">
+    <input id="maxPlayers" [(ngModel)]="post.maxPlayers" placeholder="Max Players" type="number" name="maxPlayers">
   </div>
 
   <div>
     <label for="gameDate">Game Date:</label>
-    <input id="gameDate" formControlName="gameDate" type="date">
+    <input id="gameDate" [(ngModel)]="post.gameDate" type="date" name="gameDate">
   </div>
 
   <button type="submit" [disabled]="!postForm.valid">Submit</button>

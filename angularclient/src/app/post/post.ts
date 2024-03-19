@@ -1,18 +1,18 @@
 import {User} from "../user/user";
-import {GameSystem} from "./game-system/game-system";
-import {GameType} from "./game-type/game-type";
-import {Payment} from "./payment/payment";
-import {Tag} from "./tag/tag";
-import {Warning} from "./warning/warning";
+import {GameSystem} from "./post-info/game-system/game-system";
+import {GameType} from "./post-info/game-type/game-type";
+import {Payment} from "./post-info/payment/payment";
+import {Tag} from "./post-info/tag/tag";
+import {Warning} from "./post-info/warning/warning";
 
 export class Post {
   id: number;
   creator: User;
   gameSystem: GameSystem;
   gameType: GameType;
-  payment: Payment;
   tags: Tag[];
   warnings: Warning[];
+  payment: Payment;
   paymentValue: number;
   title: string;
   content: string;

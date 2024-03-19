@@ -6,22 +6,28 @@ import {AppComponent} from './app.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {PostComponent} from './post/post.component';
-import {PostListComponent} from './post/post-list/post-list.component';
+import {PostSearchResultsComponent} from './post/post-search/post-search-results.component';
 import {PostAddComponent} from './post/post-add/post-add.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {ProfileComponent} from './profile/profile.component';
 import {LoginComponent} from './login/login.component';
 import {NgSelectModule} from "@ng-select/ng-select";
+import { PostSearchParamsComponent } from './post/post-search/post-search-params.component';
+import { PostSearchListComponent } from './post/post-search/post-search-list.component';
+import { PostValidateFieldComponent } from './post/post-add/post-validate-field/post-validate-field.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
-    PostListComponent,
+    PostSearchResultsComponent,
     PostAddComponent,
     RegistrationComponent,
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
+    PostSearchParamsComponent,
+    PostSearchListComponent,
+    PostValidateFieldComponent
   ],
   imports: [
     BrowserModule,

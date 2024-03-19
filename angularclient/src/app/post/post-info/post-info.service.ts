@@ -1,9 +1,9 @@
 import {Injectable, OnInit} from '@angular/core';
-import {GameSystemService} from "../game-system/game-system.service";
-import {GameTypeService} from "../game-type/game-type.service";
-import {PaymentService} from "../payment/payment.service";
-import {TagService} from "../tag/tag.service";
-import {WarningService} from "../warning/warning.service";
+import {GameSystemService} from "./game-system/game-system.service";
+import {GameTypeService} from "./game-type/game-type.service";
+import {PaymentService} from "./payment/payment.service";
+import {TagService} from "./tag/tag.service";
+import {WarningService} from "./warning/warning.service";
 import {PostInfo} from "./post-info";
 import {BehaviorSubject, Observable} from "rxjs";
 
