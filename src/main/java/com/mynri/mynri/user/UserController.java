@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     private final UserRepository userRepository;
+    private final UserService userService;
 
-    // TODO: change with spring security
     @GetMapping("/currentUser")
-    public User getCurrentUser() {
-        return userRepository.findAll().iterator().next();
+    public UserDto getCurrentUser() {
+        return User.toDto(userService.getCurrent());
     }
 
     @PostMapping("/register")

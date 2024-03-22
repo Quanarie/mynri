@@ -7,67 +7,90 @@ import com.mynri.mynri.post.type.GameType;
 import com.mynri.mynri.post.warning.Warning;
 import com.mynri.mynri.user.User;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.lang.NonNull;
 
 import java.util.Date;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Getter
-@NoArgsConstructor(force = true)
-@RequiredArgsConstructor
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Post {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @NonNull
     @ManyToOne
-    private final User creator;
+    private User creator;
 
     @NonNull
     @ManyToOne
-    private final GameSystem gameSystem;
+    private GameSystem gameSystem;
 
     @NonNull
     @ManyToOne
-    private final GameType gameType;
+    private GameType gameType;
 
     @NonNull
     @ManyToOne
-    private final Payment payment;
+    private Payment payment;
 
     @ManyToMany
-    private final Set<Tag> tags;
+    private Set<Tag> tags;
 
     @ManyToMany
-    private final Set<Warning> warnings;
+    private Set<Warning> warnings;
 
-    private final int paymentValue;
-    private final String title;
-    private final String content;
-    private final int bookedPlayers;
-    private final int maxPlayers;
-
-    @NonNull
-    private final Date creationDate;
+    private int paymentValue;
+    private String title;
+    private String content;
+    private int bookedPlayers;
+    private int maxPlayers;
 
     @NonNull
-    private final Date gameDate;
+    private Date creationDate;
 
-    private final String place;
-    private final float duration;
-    private final boolean isOnline;
-    private final boolean isApproved;
+    @NonNull
+    private Date gameDate;
 
-    public Post(Post post, User newCreator) {
-        this(newCreator, post.getGameSystem(), post.getGameType(), post.getPayment(),
-                post.getTags(), post.getWarnings(), post.getPaymentValue(), post.getTitle(),
-                post.getContent(), post.getBookedPlayers(), post.getMaxPlayers(),
-                post.getCreationDate(), post.getGameDate(), post.getPlace(),
-                post.getDuration(), post.isOnline(), post.isApproved());
+    private String place;
+    private float duration;
+    private boolean isOnline;
+    private boolean isApproved;
+
+    @ManyToMany
+    private Set<User> subscribers;
+
+    public static PostDto toDto(Post post) {
+        return new PostDto(
+                User.toDto(post.creator),
+                post.getGameSystem(),
+                post.getGameType(),
+                post.getPayment(),
+                post.getTags(),
+                post.getWarnings(),
+                post.getPaymentValue(),
+                post.getTitle(),
+                post.getContent(),
+                post.getBookedPlayers(),
+                post.getMaxPlayers(),
+                post.getCreationDate(),
+                post.getGameDate(),
+                post.getPlace(),
+                post.getDuration(),
+                post.isOnline,
+                post.isApproved,
+                post.getSubscribers().stream().map(User::toDto).collect(Collectors.toSet())
+        );
     }
+
 }

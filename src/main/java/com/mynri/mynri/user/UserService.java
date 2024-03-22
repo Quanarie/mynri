@@ -7,10 +7,11 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserService
 {
-    private final UserController userController;
+    private final UserRepository userRepository;
 
-    public User GetCurrent(){
-        return userController.getCurrentUser();
+    // TODO: change with spring security
+    public User getCurrent(){
+        return userRepository.findAll().iterator().next();
     }
 
 }

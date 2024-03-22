@@ -20,4 +20,10 @@
   <p>Location: {{ post.isOnline ? 'Online' : post.place }}</p>
   <p>Duration: {{ post.duration }} hours</p>
   <p>Status: {{ post.isApproved ? 'Approved' : 'Pending' }}</p>
+  <p>Subscribed:</p>
+  <ul>
+    <li *ngFor="let sub of post.subscribers">{{ sub }}</li>
+  </ul>
+  <button (click)="subscribeCurrentUser()">Subscribe
+  </button>
 </div>

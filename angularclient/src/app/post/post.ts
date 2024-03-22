@@ -24,4 +24,5 @@ export class Post {
   duration: number;
   isOnline: boolean;
   isApproved: boolean;
+  subscribers: User[];
 }

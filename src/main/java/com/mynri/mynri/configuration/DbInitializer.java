@@ -92,9 +92,9 @@ public class DbInitializer implements CommandLineRunner {
         warningRepository.saveAll(warnings);
 
         Set<Post> posts = Set.of(
-                new Post(users.iterator().next(), gameSystems.iterator().next(), gameTypes.iterator().next(),
+                new Post(1, users.iterator().next(), gameSystems.iterator().next(), gameTypes.iterator().next(),
                         payments.iterator().next(), tags, warnings, 0, "Назва", "Опис", 1, 4,
-                        new Date(), new Date(), "Київ", 1.5f, false, true)
+                        new Date(), new Date(), "Київ", 1.5f, false, true, null)
         );
         postRepository.saveAll(posts);
     }

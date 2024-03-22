@@ -9,8 +9,13 @@ import {Post} from "./post";
 export class PostService {
 
   private postsUrl = environment.domain + 'posts';
+  private subscribeUrl = environment.domain + 'subscribeCurrentUser';
 
   constructor(private http: HttpClient) {
+  }
+
+  public subscribeCurrentUser(postId: number) {
+    return this.http.post(this.subscribeUrl, postId);
   }
 
   public findAll() {
@@ -18,6 +23,6 @@ export class PostService {
   }
 
   public save(post: Post) {
-    return this.http.post<Post>(this.postsUrl, post);
+    return this.http.post(this.postsUrl, post);
   }
 }

@@ -2,7 +2,6 @@
   <h3>Current User Information:</h3>
   <ul>
     <li>Username: {{ currentUser.username }}</li>
-    <li>Email: {{ currentUser.email }}</li>
     <li>Roles:
       <ul>
         <li *ngFor="let role of currentUser.roles">{{ role.name }}</li>
