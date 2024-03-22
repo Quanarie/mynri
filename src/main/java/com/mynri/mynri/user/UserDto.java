@@ -16,5 +16,9 @@ public class UserDto {
 
     private String username;
     private Set<Role> roles;
+    private String description;
+    private String discord;
+    private String telegram;
+
 }
 

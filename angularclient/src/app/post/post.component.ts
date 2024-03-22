@@ -8,19 +8,11 @@ import {UserService} from "../user/user.service";
   selector: 'app-post',
   templateUrl: './post.component.html'
 })
-export class PostComponent implements OnInit {
+export class PostComponent {
 
   @Input() post: Post;
-  currentUser: User;
 
-  constructor(private userService: UserService,
-              private postService: PostService) {
-  }
-
-  ngOnInit(): void {
-    this.userService.getCurrent().subscribe(user => {
-      this.currentUser = user;
-    });
+  constructor(private postService: PostService) {
   }
 
   subscribeCurrentUser() {

@@ -47,10 +47,14 @@ public class DbInitializer implements CommandLineRunner {
 
         Set<User> users = Set.of(
                 new User(
+                        1L,
                         "qustaine",
                         new BCryptPasswordEncoder().encode("changeit"),
                         "qustaine@gmail.com",
-                        roles
+                        roles,
+                        "Опис кустанє",
+                        "discord",
+                        "telegram"
                 )
         );
         userRepository.saveAll(users);
@@ -92,7 +96,7 @@ public class DbInitializer implements CommandLineRunner {
         warningRepository.saveAll(warnings);
 
         Set<Post> posts = Set.of(
-                new Post(1, users.iterator().next(), gameSystems.iterator().next(), gameTypes.iterator().next(),
+                new Post(1L, users.iterator().next(), gameSystems.iterator().next(), gameTypes.iterator().next(),
                         payments.iterator().next(), tags, warnings, 0, "Назва", "Опис", 1, 4,
                         new Date(), new Date(), "Київ", 1.5f, false, true, null)
         );

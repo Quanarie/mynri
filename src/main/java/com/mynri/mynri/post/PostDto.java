@@ -5,24 +5,18 @@ import com.mynri.mynri.post.system.GameSystem;
 import com.mynri.mynri.post.tag.Tag;
 import com.mynri.mynri.post.type.GameType;
 import com.mynri.mynri.post.warning.Warning;
-import com.mynri.mynri.user.User;
 import com.mynri.mynri.user.UserDto;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.lang.NonNull;
 
 import java.util.Date;
 import java.util.Set;
 
 @Getter
-@Setter
-@NoArgsConstructor
 @AllArgsConstructor
 public class PostDto {
 
+    private Long id;
     private UserDto creator;
     private GameSystem gameSystem;
     private GameType gameType;
@@ -31,7 +25,7 @@ public class PostDto {
     private Set<Warning> warnings;
     private int paymentValue;
     private String title;
-    private String content;
+    private String description;
     private int bookedPlayers;
     private int maxPlayers;
     private Date creationDate;

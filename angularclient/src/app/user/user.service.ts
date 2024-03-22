@@ -11,13 +11,13 @@ export class UserService {
 
   private registerUrl = environment.domain + 'register';
   private loginUrl = environment.domain + 'login';
-  private currentUserUrl = environment.domain + 'currentUser';
+  private userUrl = environment.domain + 'user';
 
   constructor(private http: HttpClient) {
   }
 
-  public getCurrent(): Observable<User> {
-    return this.http.get<User>(this.currentUserUrl);
+  public getUser(username?: string): Observable<User> {
+    return this.http.get<User>(username ? `${this.userUrl}/${username}` : this.userUrl);
   }
 
   public register(user: User) {

@@ -26,7 +26,7 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     @NonNull
     @ManyToOne
@@ -52,7 +52,7 @@ public class Post {
 
     private int paymentValue;
     private String title;
-    private String content;
+    private String description;
     private int bookedPlayers;
     private int maxPlayers;
 
@@ -72,6 +72,7 @@ public class Post {
 
     public static PostDto toDto(Post post) {
         return new PostDto(
+                post.id,
                 User.toDto(post.creator),
                 post.getGameSystem(),
                 post.getGameType(),
@@ -80,7 +81,7 @@ public class Post {
                 post.getWarnings(),
                 post.getPaymentValue(),
                 post.getTitle(),
-                post.getContent(),
+                post.getDescription(),
                 post.getBookedPlayers(),
                 post.getMaxPlayers(),
                 post.getCreationDate(),

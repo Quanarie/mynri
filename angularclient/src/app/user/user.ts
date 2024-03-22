@@ -4,7 +4,10 @@ export class User {
   constructor(
     public username: string,
     public password: string,
-    public roles: Role[]
+    public roles: Role[],
+    public description: string,
+    public discord: string,
+    public telegram: string
   ) {
   }
 }

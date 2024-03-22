@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {PostSearchResultsComponent} from "./post/post-search/post-search-results.component";
 import {PostAddComponent} from "./post/post-add/post-add.component";
 import {RegistrationComponent} from "./registration/registration.component";
 import {ProfileComponent} from "./profile/profile.component";
@@ -13,6 +12,7 @@ export const routes: Routes = [
   {path: 'registration', component: RegistrationComponent, data: {title: 'Реєстрація', showInNav: true}},
   {path: 'login', component: LoginComponent, data: {title: 'Логін', showInNav: true}},
   {path: 'profile', component: ProfileComponent, data: {title: 'Профіль', showInNav: true}},
+  {path: 'profile/:username', component: ProfileComponent, data: {showInNav: false}}
 ];
 
 @NgModule({

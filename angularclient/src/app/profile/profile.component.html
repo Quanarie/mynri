@@ -1,11 +1,14 @@
-<div *ngIf="currentUser">
-  <h3>Current User Information:</h3>
+<div *ngIf="user">
+  <h3>Інфа користувача:</h3>
   <ul>
-    <li>Username: {{ currentUser.username }}</li>
-    <li>Roles:
+    <li>Нік: {{ user.username }}</li>
+    <li>Ролі:
       <ul>
-        <li *ngFor="let role of currentUser.roles">{{ role.name }}</li>
+        <li *ngFor="let role of user.roles">{{ role.name }}</li>
       </ul>
     </li>
+    <li>Опис: {{ user.description }}</li>
+    <li>Діскорд: {{ user.discord }}</li>
+    <li>Телеграм: {{ user.telegram }}</li>
   </ul>
 </div>
