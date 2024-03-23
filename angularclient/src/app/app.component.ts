@@ -1,11 +1,31 @@
-import {Component} from '@angular/core';
-import {routes} from "./app-routing.module";
+import {Component, OnInit} from '@angular/core';
+import {UserService} from "./user/user.service";
+import {NavigationEnd, Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
   title = 'NRI';
-  navRoutes = routes.filter(route => route.data?.['showInNav']);
+  isAuthenticated = false;
+
+  constructor(private userService: UserService,
+              private router: Router) {
+  }
+
+  ngOnInit(): void {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.loadAuthenticatedUser();
+      }
+    });
+  }
+
+  private loadAuthenticatedUser() {
+    this.userService.getUser().subscribe(
+      user => this.isAuthenticated = user != undefined
+    );
+  }
 }

@@ -8,13 +8,14 @@ import {HttpClientModule} from "@angular/common/http";
 import {PostComponent} from './post/post.component';
 import {PostSearchResultsComponent} from './post/post-search/post-search-results.component';
 import {PostAddComponent} from './post/post-add/post-add.component';
-import {RegistrationComponent} from './registration/registration.component';
+import {RegistrationComponent} from './authentication/registration/registration.component';
 import {ProfileComponent} from './profile/profile.component';
-import {LoginComponent} from './login/login.component';
+import {LoginComponent} from './authentication/login/login.component';
 import {NgSelectModule} from "@ng-select/ng-select";
-import { PostSearchParamsComponent } from './post/post-search/post-search-params.component';
-import { PostSearchListComponent } from './post/post-search/post-search-list.component';
-import { PostValidateFieldComponent } from './post/post-add/post-validate-field/post-validate-field.component';
+import {PostSearchParamsComponent} from './post/post-search/post-search-params.component';
+import {PostSearchListComponent} from './post/post-search/post-search-list.component';
+import {PostValidateFieldComponent} from './post/post-add/post-validate-field/post-validate-field.component';
+import {LogoutComponent} from './authentication/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PostValidateFieldComponent } from './post/post-add/post-validate-field/
     LoginComponent,
     PostSearchParamsComponent,
     PostSearchListComponent,
-    PostValidateFieldComponent
+    PostValidateFieldComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

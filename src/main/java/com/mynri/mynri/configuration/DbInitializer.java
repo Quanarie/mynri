@@ -18,7 +18,6 @@ import com.mynri.mynri.user.role.Role;
 import com.mynri.mynri.user.role.RoleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -37,6 +36,8 @@ public class DbInitializer implements CommandLineRunner {
     private final TagRepository tagRepository;
     private final WarningRepository warningRepository;
 
+    private final PasswordEncoder encoder = new PasswordEncoder();
+
     @Override
     public void run(String... args) {
         Set<Role> roles = Set.of(
@@ -49,7 +50,7 @@ public class DbInitializer implements CommandLineRunner {
                 new User(
                         1L,
                         "qustaine",
-                        new BCryptPasswordEncoder().encode("changeit"),
+                        encoder.encode("changeit"),
                         "qustaine@gmail.com",
                         roles,
                         "Опис кустанє",

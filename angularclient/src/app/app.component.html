@@ -4,9 +4,18 @@
       <div class="card bg-dark my-5">
         <div class="card-body">
           <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
-          <ul class="text-center list-inline py-3">
-            <li class="list-inline-item" *ngFor="let route of navRoutes">
-              <a [routerLink]="route.path" class="btn btn-info">{{ route.data?.['title'] }}</a>
+          <ul class="text-center list-inline">
+            <li class="list-inline-item">
+            <span *ngIf="isAuthenticated">
+                <a routerLink="/posts" class="btn btn-info">Пости</a>
+                <a routerLink="/post-add" class="btn btn-info">Додати пост</a>
+                <a routerLink="/profile" class="btn btn-info">Профіль</a>
+                <a routerLink="/logout" class="btn btn-info">Логаут</a>
+            </span>
+            <span *ngIf="!isAuthenticated">
+              <a routerLink="/registration" class="btn btn-info">Регістрація</a>
+              <a routerLink="/login" class="btn btn-info">Логін</a>
+            </span>
             </li>
           </ul>
         </div>
